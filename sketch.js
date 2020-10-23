@@ -1,10 +1,12 @@
-let shapes = ['sqaure','rect','ellipse']
+let shapes = []
 let shapeType='square'
 let deletAShape=shapes.splice()
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  for (let i=0;i<25;i++) {
+  
+    createCanvas(windowWidth, windowHeight);
+  
+    for (let i=0;i<25;i++) {
       shape1={
    x=random(width),
    y= random(height),
@@ -12,6 +14,10 @@ function setup() {
   }
   shapes.push(shape1);
 }
+}
+
+function keyPressed () {
+    shapeType=random(['sqaure','circle'])
 }
 
 function draw() {
