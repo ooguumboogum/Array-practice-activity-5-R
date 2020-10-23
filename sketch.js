@@ -1,7 +1,6 @@
 let shapes = []
 let shapeType='square'
 let deletAShape=shapes.splice()
-
 function setup() {
   
     createCanvas(windowWidth, windowHeight);
