@@ -1,0 +1,58 @@
+let shapes = []
+let shapeType = 'square'
+// set show shape color
+let showColor = 'all'
+// set show shape shapetype
+let showShapeType = 'all'
+
+// let deletAShape = shapes.splice()
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+
+  for (let i = 0; i < 40; i++) {
+    shape1 = {
+      x: random(width),
+      y: random(height),
+      color: random(['red', 'blue', 'black']),
+      shapeType: random(['square', 'circle', 'ellipse']),
+    }
+    shapes.push(shape1);
+  }
+  //noLoop();
+}
+
+function draw() {
+  background(200);
+  for (let shape of shapes) {
+    fill(shape.color)
+    // console.info('shape.shapeType', shape.shapeType)
+    if (shape.shapeType === 'square') {
+      rect(shape.x, shape.y, 100, 100);
+    }
+    if (shape.shapeType === 'circle') {
+      circle(shape.x, shape.y, 100)
+
+    }
+    if (shape.shapeType === 'ellipse') {
+      ellipse(shape.x, shape.y, 15, 150)
+    }
+
+  }
+}
+
+//点击设置显示的形状和颜色
+function mousePressed() {
+  
+  showColor =  random(['red', 'blue', 'black']);//设置要显示的颜色
+  showShapeType = random(['square', 'circle', 'ellipse']); //设置要显示的形状
+   for (let i=0;i<shapes.length;i++) {
+   //这里写过滤代码，把满足条件的元素从数组删除，而后再调用draw()方法
+     let shape = shapes[i];
+     if(shape.color==showColor || shape.shapeType==showShapeType)
+     shapes.splice(i,1);
+   }
+  print(shapes);
+  print(showColor,showShapeType);
+  redraw();
+}
